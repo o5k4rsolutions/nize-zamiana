@@ -141,7 +141,7 @@
                 positions.forEach(pos => {
                     const page = pages[pos.pageIndex];
                     
-                    const maskWidth = pos.width + 15; 
+                    const maskWidth = 350; 
                     
                     page.drawRectangle({
                         x: pos.x - 2,
@@ -151,13 +151,8 @@
                         color: rgb(1, 1, 1),
                     });
 
-                    let finalFontSize = Math.max(pos.fontSize * 1.10, 9);
+                    let finalFontSize = 10;
                     
-                    const newTextWidth = customFont.widthOfTextAtSize(TARGET_TEXT, finalFontSize);
-                    if (newTextWidth > maskWidth) {
-                        finalFontSize = finalFontSize * (maskWidth / newTextWidth);
-                    }
-
                     page.drawText(TARGET_TEXT, {
                         x: pos.x,
                         y: pos.y,
